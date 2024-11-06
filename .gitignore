@@ -1,0 +1,20 @@
+# Ignore the build directory and any temporary build files
+build/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+
+# Ignore executables and object files
+*.exe
+*.out
+*.o
+
+# Ignore log and temporary files
+*.log
+*.tmp
+
+# Ignore macOS-specific files
+.DS_Store
+
+# Ignore Windows-specific system files
+Thumbs.db
