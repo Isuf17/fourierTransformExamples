@@ -100,19 +100,14 @@ void showMagnitudeSpectrum(cv::Mat& complexI,const std::string& name){
 
 void showPhaseSpectrum(cv::Mat& complexI, const std::string& name) {
     cv::Mat p[2];
-    cv::split(complexI, p);  // Split into real and imaginary parts
+    cv::split(complexI, p); 
 
-    // Calculate the phase (angle) for each frequency component
     cv::Mat phase;
-    cv::phase(p[0], p[1], phase); // phase = atan2(imaginary, real)
+    cv::phase(p[0], p[1], phase);
 
-    // Shift the quadrants to center the low frequencies
     crop_and_rearrange(phase);
 
-    // Normalize the phase for display (between 0 and 1)
     cv::normalize(phase, phase, 0, 1, cv::NORM_MINMAX);
-
-    // Display the phase spectrum
     showImg(phase, name.c_str());
 }
 
@@ -120,7 +115,7 @@ void showPhaseSpectrum(cv::Mat& complexI, const std::string& name) {
 int main(int argc,char** argv){
 
 	cv::Mat input_img,fourier_img;
-	input_img = cv::imread("image.png",cv::IMREAD_GRAYSCALE);
+	input_img = cv::imread("../image.png",cv::IMREAD_GRAYSCALE);
 	if(input_img.empty()) {
 		fprintf(stderr,"Could not Open image\n\n");
 		return -1;

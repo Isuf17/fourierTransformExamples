@@ -15,9 +15,9 @@ if(NOT OpenCV_FOUND)
 endif()
 message(STATUS "Found OpenCV version ${OpenCV_VERSION}")
 
-# Add executable
-add_executable(fourierTransformExamples main.cpp)
+# Add executable with the desired name `main`
+add_executable(main main.cpp)
 
 # Include OpenCV directories and link libraries using modern CMake
-target_include_directories(fourierTransformExamples PRIVATE ${OpenCV_INCLUDE_DIRS})
-target_link_libraries(fourierTransformExamples PRIVATE ${OpenCV_LIBS})
+target_include_directories(main PRIVATE ${OpenCV_INCLUDE_DIRS})
+target_link_libraries(main PRIVATE ${OpenCV_LIBS})
